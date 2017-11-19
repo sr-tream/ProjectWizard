@@ -1,0 +1,8 @@
+# ninja log v5
+0	471	1511096989	CMakeFiles/ProjectWizard.dir/main.cpp.o	acf5c6428f49ff6b
+0	628	1511096989	CMakeFiles/ProjectWizard.dir/FileMan/cfilebase.cpp.o	2f170e99e6ccf622
+2	913	1511096989	CMakeFiles/ProjectWizard.dir/FileMan/main.cpp.o	18c1096041a26d3b
+0	930	1511096989	CMakeFiles/ProjectWizard.dir/FileMan/cfilebin.cpp.o	15b754350bfa7bbe
+1	1059	1511096989	CMakeFiles/ProjectWizard.dir/FileMan/cfiletext.cpp.o	7c537e2be472bed5
+1	3375	1511096992	CMakeFiles/ProjectWizard.dir/FileMan/cfileinfo.cpp.o	cc832d8c58390678
+1	3765	1511096992	CMakeFiles/ProjectWizard.dir/FileMan/cfileini.cpp.o	a72852d538fb6c86

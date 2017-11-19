@@ -1,0 +1,4 @@
+
+[submodule "FileMan"]
+	path = FileMan
+	url = https://github.com/sr-tream/FileMan

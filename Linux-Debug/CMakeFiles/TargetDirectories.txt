@@ -1,0 +1,3 @@
+/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug/CMakeFiles/rebuild_cache.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug/CMakeFiles/ProjectWizard.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug/CMakeFiles/edit_cache.dir

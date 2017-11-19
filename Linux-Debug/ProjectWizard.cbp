@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ProjectWizard"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v all"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v rebuild_cache"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ProjectWizard">
+				<Option output="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug/libProjectWizard.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v ProjectWizard"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ProjectWizard/fast">
+				<Option output="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug/libProjectWizard.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v ProjectWizard/fast"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sr-tream/Projects/workspace/ProjectWizard/Linux-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/ninja -v edit_cache"/>
+					<CompileFile command="/usr/bin/ninja -v &quot;$file&quot;"/>
+					<Clean command="/usr/bin/ninja -v clean"/>
+					<DistClean command="/usr/bin/ninja -v clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfilebase.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfilebase.h">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfilebin.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfilebin.h">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileinfo.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileinfo.h">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileini.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileini.h">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfiletext.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfiletext.h">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/main.cpp">
+			<Option target="ProjectWizard"/>
+		</Unit>
+		<Unit filename="/home/sr-tream/Projects/workspace/ProjectWizard/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
