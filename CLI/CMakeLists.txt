@@ -2,32 +2,22 @@ cmake_minimum_required(VERSION 2.8)
 
 project(projwizard_cli)
 
-
-macro( getSrcList placeholder floderName )
-	set( GSL "" )
-	file(GLOB GSL_CPP "${floderName}/*.cpp")
-	file(GLOB GSL_HPP "${floderName}/*.hpp")
-	file(GLOB GSL_C "${floderName}/*.c")
-	file(GLOB GSL_H "${floderName}/*.h")
-	file(GLOB GSL ${GSL}}
-		${GSL_CPP}
-		${GSL_HPP}
-		${GSL_C}
-		${GSL_H})
-endmacro( getSrcList )
+set(Boost_DETAILED_FAILURE_MSG TRUE)
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+set(Boost_ADDITIONAL_VERSIONS "1.48.0")
+find_package(Boost ${Boost_ADDITIONAL_VERSIONS} COMPONENTS filesystem REQUIRED)
 
 
-set( GSL "" )
-getSrcList(${GSL}, .)
-file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
-
-set( GSL "" )
-getSrcList(${GSL}, ../FileMan)
-file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
-
+file(GLOB ${PROJECT_NAME}_SOURCES "*.cpp")
+file(GLOB ${PROJECT_NAME}_HEADERS "*.h")
 file(GLOB LIB_PW_H "../*.h")
 file(GLOB LIB_PW_HPP "../*.hpp")
-file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${LIB_PW_H} ${LIB_PW_HPP})
+file(GLOB LIB_PW_FMH "../FileMan/*.h")
+file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST}
+	${LIB_PW_H} ${LIB_PW_HPP} ${LIB_PW_FMH}
+	${${PROJECT_NAME}_SOURCES}
+	${${PROJECT_NAME}_HEADERS})
 
 
 add_definitions("-std=c++14 -ffunction-sections -fexec-charset=CP1251")
@@ -36,4 +26,4 @@ set(CMAKE_SHARED_LINKER_FLAGS ${BUILD_LFLAGS})
 
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_LIST})
 
-target_link_libraries(${PROJECT_NAME} ProjectWizard)
+target_link_libraries(${PROJECT_NAME} ProjectWizard ${Boost_LIBRARIES})

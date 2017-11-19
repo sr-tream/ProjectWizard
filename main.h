@@ -23,9 +23,9 @@ void addVariant(std::string varName, std::string variant);
 void setDefaultVariant(std::string varName, size_t id);
 
 stVariable getVariable(std::string name);
-std::string geDescription(std::string varName);
-std::deque<std::string> geVariants(std::string varName);
-std::deque<std::string> &geVariantsRef(std::string varName);
+std::string getDescription(std::string varName);
+std::deque<std::string> getVariants(std::string varName);
+std::deque<std::string> &getVariantsRef(std::string varName);
 size_t getDefaultVariant(std::string varName);
 
 void selectVariant(std::string varName, size_t id);

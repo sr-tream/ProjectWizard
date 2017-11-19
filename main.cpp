@@ -35,17 +35,17 @@ stVariable getVariable(std::string name)
 	return variables[name];
 }
 
-std::string geDescription(std::string varName)
+std::string getDescription(std::string varName)
 {
 	return variables[varName].description;
 }
 
-std::deque<std::string> geVariants(std::string varName)
+std::deque<std::string> getVariants(std::string varName)
 {
 	return variables[varName].variants;
 }
 
-std::deque<std::string> &geVariantsRef(std::string varName)
+std::deque<std::string> &getVariantsRef(std::string varName)
 {
 	return variables[varName].variants;
 }
