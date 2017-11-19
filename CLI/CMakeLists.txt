@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(ProjectWizard)
+project(projwizard_cli)
 
-option(BUILD_CLI "Build CLI frontend [ON/OFF]" ON)
-option(BUILD_GUI "Build GUI frontend [ON/OFF]" OFF)
 
 macro( getSrcList placeholder floderName )
 	set( GSL "" )
@@ -24,20 +22,18 @@ getSrcList(${GSL}, .)
 file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
 
 set( GSL "" )
-getSrcList(${GSL}, FileMan)
+getSrcList(${GSL}, ../FileMan)
 file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
+
+file(GLOB LIB_PW_H "../*.h")
+file(GLOB LIB_PW_HPP "../*.hpp")
+file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${LIB_PW_H} ${LIB_PW_HPP})
 
 
 add_definitions("-std=c++14 -ffunction-sections -fexec-charset=CP1251")
 set(BUILD_LFLAGS "-Wl,--gc-sections")
 set(CMAKE_SHARED_LINKER_FLAGS ${BUILD_LFLAGS})
 
-add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_LIST})
+add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_LIST})
 
-if (BUILD_CLI)
-	add_subdirectory(CLI)
-endif(BUILD_CLI)
-
-if (BUILD_GUI)
-	add_subdirectory(GUI)
-endif(BUILD_GUI)
+target_link_libraries(${PROJECT_NAME} ProjectWizard)
