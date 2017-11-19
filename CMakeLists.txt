@@ -27,7 +27,7 @@ file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
 
 
 add_definitions("-std=c++14 -ffunction-sections -fexec-charset=CP1251")
-set(BUILD_LFLAGS "-Wl,--strip-all -Wl,--gc-sections")
+set(BUILD_LFLAGS "-Wl,--gc-sections")
 set(CMAKE_SHARED_LINKER_FLAGS ${BUILD_LFLAGS})
 
 add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_LIST})
