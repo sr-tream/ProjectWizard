@@ -1,0 +1,8 @@
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/install/strip.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/edit_cache.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/gui.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/install.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/rebuild_cache.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/list_install_components.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/install/local.dir
+/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/gui_autogen.dir

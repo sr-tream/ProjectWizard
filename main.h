@@ -34,6 +34,7 @@ size_t getSelectedVariant(std::string varName);
 std::string stringReplace(std::string str, const std::string &old_substr, const std::string &new_substr);
 
 
+void prepareString(std::string *str);
 void prepareFile(CFileText *file);
 
 #endif //MAIN_H

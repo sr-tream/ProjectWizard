@@ -78,12 +78,21 @@ std::string stringReplace(std::string str, const std::string &old_substr, const 
 	return str;
 }
 
+void prepareString(std::string *str)
+{
+	for (auto var : variables){
+		if (str->find("${" + var.first + "}") != std::string::npos)
+			*str = stringReplace(*str, "${" + var.first + "}", var.second.variants[var.second.variant]);
+	}
+}
+
 void prepareFile(CFileText *file)
 {
 	for(size_t i = 0; i < file->count(); ++i){
-		for (auto var : variables){
-			if (file->at(i).find("${" + var.first + "}") != std::string::npos)
-				file->at(i) = stringReplace(file->at(i), "${" + var.first + "}", var.second.variants[var.second.variant]);
-		}
+//		for (auto var : variables){
+//			if (file->at(i).find("${" + var.first + "}") != std::string::npos)
+//				file->at(i) = stringReplace(file->at(i), "${" + var.first + "}", var.second.variants[var.second.variant]);
+//		}
+		prepareString(&file->at(i));
 	}
 }

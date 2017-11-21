@@ -1,35 +1,28 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.11)
+project(GUI)
 
-project(projwizard_gui)
+# Find includes in corresponding build directories
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed.
+set(CMAKE_AUTOMOC ON)
 
+# Find the QtWidgets library
+find_package(Qt5Widgets CONFIG REQUIRED)
 
-macro( getSrcList placeholder floderName )
-	set( GSL "" )
-	file(GLOB GSL_CPP "${floderName}/*.cpp")
-	file(GLOB GSL_HPP "${floderName}/*.hpp")
-	file(GLOB GSL_C "${floderName}/*.c")
-	file(GLOB GSL_H "${floderName}/*.h")
-	file(GLOB GSL ${GSL}}
-		${GSL_CPP}
-		${GSL_HPP}
-		${GSL_C}
-		${GSL_H})
-endmacro( getSrcList )
+set(gui_SRC
+  src/main.cpp
+  src/gui.cpp
+)
 
+# Create code from a list of Qt designer ui files.
+#set(CMAKE_AUTOUIC ON) # use this if you have CMake 3.x instead of the following
+qt5_wrap_ui(gui_SRC src/gui.ui)
 
-set( GSL "" )
-getSrcList(${GSL}, .)
-file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
+# Tell CMake to create the helloworld executable
+add_executable(gui ${gui_SRC})
 
-set( GSL "" )
-getSrcList(${GSL}, ../FileMan)
-file(GLOB ${PROJECT_NAME}_LIST ${${PROJECT_NAME}_LIST} ${GSL})
+# Use the Widgets module from Qt 5.
+target_link_libraries(gui Qt5::Widgets)
 
-
-add_definitions("-std=c++14 -ffunction-sections -fexec-charset=CP1251")
-set(BUILD_LFLAGS "-Wl,--gc-sections")
-set(CMAKE_SHARED_LINKER_FLAGS ${BUILD_LFLAGS})
-
-add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_LIST})
-
-target_link_libraries(${PROJECT_NAME} ProjectWizard)
+# Install the executable
+install(TARGETS gui DESTINATION bin)

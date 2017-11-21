@@ -1,5 +1,6 @@
 #include <iostream>
 #include <boost/filesystem.hpp>
+#include <regex>
 
 #include "../main.h"
 #include "../FileMan/cfileinfo.h"
@@ -62,18 +63,25 @@ int main(int args, char **argv)
 		return 2;
 	}
 
-	// TODO: parse ini wizard file
 	CFileIni config(argv[1]);
 
 	std::deque<CFileInfo> list_wizard = make_list_wizard(path(wizFile.path()));
 	std::deque<std::string> ex_files = config.array("/exclude");
 	std::deque<std::string> as_is = config.array("/AsIs");
+	std::deque<std::string> rename = config.array("/rename");
 
 	std::string defName = config.value("/ProjectName");
-	std::string ProjectName = getProjectName(defName.empty() ? "default" : defName);
+	std::string ProjectName = "default";
+	if (args == 2)
+		ProjectName = getProjectName(defName.empty() ? "default" : defName);
+	else {
+		ProjectName = argv[2];
+		addVariable("ProjectName", {ProjectName}, "The project name");
+		create_directory(path(ProjectName));
+	}
 
 	std::deque<std::string> vars = config.array("/variable");
-	for (auto &var : vars){ // TODO: add input-style vars
+	for (auto &var : vars){ // TODO: bind args to variables
 		std::string description = config.value(var + "/description");
 		std::string defVariant = config.value(var + "/default_variant");
 		int input = config.read<int>(var + "/input");
@@ -110,12 +118,13 @@ int main(int args, char **argv)
 			std::cout << "Input value [" << defVariant << "]: ";
 			std::string value;
 			getline(std::cin, value);
+			if (value.empty())
+				value = defVariant;
 			variants.push_front(value);
 			setVariants(var, variants);
 		}
 	}
 
-	// TODO: modify and copy files
 	for (auto file : list_wizard){
 		std::string fileName = file.file();
 		fileName.erase(0, wizFile.path().length());
@@ -126,15 +135,37 @@ int main(int args, char **argv)
 		if (hasInDeque(ex_files, fileName))
 			continue;
 
-		copy_file(path(file.file()), path(ProjectName + "/" + fileName));
+		if (is_directory( path(file.file()) )){
+			create_directories(path(ProjectName + "/" + fileName));
+			continue;
+		}
+
+		try {
+			copy_file(path(file.file()), path(ProjectName + "/" + fileName));
+		} catch (std::exception) {
+			create_directories(path(CFileInfo(ProjectName + "/" + fileName).path()));
+			copy_file(path(file.file()), path(ProjectName + "/" + fileName));
+		}
 		if (hasInDeque(as_is, file.file()))
 			continue;
+
+		const std::regex re(R"(\"(.+)\"\s+\"(.+)\")");
+		std::cmatch m;
+		for (auto &name_pair : rename){
+			if (std::regex_match(name_pair.c_str(), m, re)){
+				if (m[1].str() == fileName){
+					std::string targetName = m[2].str();
+					prepareString(&targetName);
+					boost::filesystem::rename(path(ProjectName + "/" + fileName), path(ProjectName + "/" + targetName));
+					fileName = targetName;
+					break;
+				}
+			}
+		}
 
 		CFileText text(ProjectName + "/" + fileName);
 		prepareFile(&text);
 		std::cout << "Prepare " + fileName << std::endl;
-
-		// TODO: rename file
 	}
 
 	return 0;
