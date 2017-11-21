@@ -23,6 +23,10 @@ gui.h
 /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.h
 ui_gui.h
 /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/ui_gui.h
+QFileDialog
+-
+QMessageBox
+-
 
 /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.h
 QMainWindow
@@ -204,6 +208,16 @@ map
 utility
 -
 
+/usr/include/qt/QtCore/qdir.h
+QtCore/qstring.h
+-
+QtCore/qfileinfo.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qshareddata.h
+-
+
 /usr/include/qt/QtCore/qeventloop.h
 QtCore/qobject.h
 -
@@ -220,6 +234,16 @@ stdio.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
+-
+
+/usr/include/qt/QtCore/qfileinfo.h
+QtCore/qfile.h
+-
+QtCore/qlist.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/qt/QtCore/qflags.h
@@ -962,6 +986,14 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
+/usr/include/qt/QtGui/qpen.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qbrush.h
+-
+
 /usr/include/qt/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
@@ -1016,6 +1048,46 @@ QtCore/qprocessordetection.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
+-
+
+/usr/include/qt/QtGui/qtextcursor.h
+QtGui/qtguiglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qshareddata.h
+-
+QtGui/qtextformat.h
+-
+
+/usr/include/qt/QtGui/qtextformat.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qfont.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qvector.h
+-
+QtCore/qvariant.h
+-
+QtGui/qpen.h
+-
+QtGui/qbrush.h
+-
+QtGui/qtextoption.h
+-
+
+/usr/include/qt/QtGui/qtextoption.h
+QtGui/qtguiglobal.h
+-
+QtCore/qnamespace.h
+-
+QtCore/qchar.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/qt/QtGui/qtgui-config.h
@@ -1100,6 +1172,10 @@ qapplication.h
 qbuttongroup.h
 /usr/include/qt/QtWidgets/qbuttongroup.h
 
+/usr/include/qt/QtWidgets/QFileDialog
+qfiledialog.h
+/usr/include/qt/QtWidgets/qfiledialog.h
+
 /usr/include/qt/QtWidgets/QGridLayout
 qgridlayout.h
 /usr/include/qt/QtWidgets/qgridlayout.h
@@ -1108,9 +1184,21 @@ qgridlayout.h
 qgroupbox.h
 /usr/include/qt/QtWidgets/qgroupbox.h
 
+/usr/include/qt/QtWidgets/QHBoxLayout
+qboxlayout.h
+/usr/include/qt/QtWidgets/qboxlayout.h
+
 /usr/include/qt/QtWidgets/QHeaderView
 qheaderview.h
 /usr/include/qt/QtWidgets/qheaderview.h
+
+/usr/include/qt/QtWidgets/QLabel
+qlabel.h
+/usr/include/qt/QtWidgets/qlabel.h
+
+/usr/include/qt/QtWidgets/QLineEdit
+qlineedit.h
+/usr/include/qt/QtWidgets/qlineedit.h
 
 /usr/include/qt/QtWidgets/QListWidget
 qlistwidget.h
@@ -1128,9 +1216,21 @@ qmenu.h
 qmenubar.h
 /usr/include/qt/QtWidgets/qmenubar.h
 
+/usr/include/qt/QtWidgets/QMessageBox
+qmessagebox.h
+/usr/include/qt/QtWidgets/qmessagebox.h
+
+/usr/include/qt/QtWidgets/QPushButton
+qpushbutton.h
+/usr/include/qt/QtWidgets/qpushbutton.h
+
 /usr/include/qt/QtWidgets/QScrollArea
 qscrollarea.h
 /usr/include/qt/QtWidgets/qscrollarea.h
+
+/usr/include/qt/QtWidgets/QSpacerItem
+qlayoutitem.h
+/usr/include/qt/QtWidgets/qlayoutitem.h
 
 /usr/include/qt/QtWidgets/QSplitter
 qsplitter.h
@@ -1140,9 +1240,23 @@ qsplitter.h
 qstatusbar.h
 /usr/include/qt/QtWidgets/qstatusbar.h
 
+/usr/include/qt/QtWidgets/QVBoxLayout
+qboxlayout.h
+/usr/include/qt/QtWidgets/qboxlayout.h
+
 /usr/include/qt/QtWidgets/QWidget
 qwidget.h
 /usr/include/qt/QtWidgets/qwidget.h
+
+/usr/include/qt/QtWidgets/qabstractbutton.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtGui/qicon.h
+-
+QtGui/qkeysequence.h
+-
+QtWidgets/qwidget.h
+-
 
 /usr/include/qt/QtWidgets/qabstractitemdelegate.h
 QtWidgets/qtwidgetsglobal.h
@@ -1246,6 +1360,24 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qwidget.h
 -
 
+/usr/include/qt/QtWidgets/qdialog.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/usr/include/qt/QtWidgets/qfiledialog.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qdir.h
+-
+QtCore/qstring.h
+-
+QtCore/qurl.h
+-
+QtWidgets/qdialog.h
+-
+
 /usr/include/qt/QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1272,6 +1404,12 @@ QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
+-
+
+/usr/include/qt/QtWidgets/qlabel.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
 -
 
 /usr/include/qt/QtWidgets/qlayout.h
@@ -1302,6 +1440,18 @@ QtWidgets/qsizepolicy.h
 QtCore/qrect.h
 -
 limits.h
+-
+
+/usr/include/qt/QtWidgets/qlineedit.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
+-
+QtGui/qtextcursor.h
+-
+QtCore/qstring.h
+-
+QtCore/qmargins.h
 -
 
 /usr/include/qt/QtWidgets/qlistview.h
@@ -1346,6 +1496,18 @@ QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
+-
+
+/usr/include/qt/QtWidgets/qmessagebox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qdialog.h
+-
+
+/usr/include/qt/QtWidgets/qpushbutton.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qabstractbutton.h
 -
 
 /usr/include/qt/QtWidgets/qrubberband.h
@@ -1501,7 +1663,13 @@ QtWidgets/QGridLayout
 -
 QtWidgets/QGroupBox
 -
+QtWidgets/QHBoxLayout
+-
 QtWidgets/QHeaderView
+-
+QtWidgets/QLabel
+-
+QtWidgets/QLineEdit
 -
 QtWidgets/QListWidget
 -
@@ -1511,11 +1679,17 @@ QtWidgets/QMenu
 -
 QtWidgets/QMenuBar
 -
+QtWidgets/QPushButton
+-
 QtWidgets/QScrollArea
+-
+QtWidgets/QSpacerItem
 -
 QtWidgets/QSplitter
 -
 QtWidgets/QStatusBar
+-
+QtWidgets/QVBoxLayout
 -
 QtWidgets/QWidget
 -
