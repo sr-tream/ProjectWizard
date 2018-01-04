@@ -55,11 +55,11 @@ include CMakeFiles/gui_autogen.dir/progress.make
 
 CMakeFiles/gui_autogen: ui_gui.h
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target gui"
-	/usr/bin/cmake -E cmake_autogen /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/gui_autogen.dir ""
+	/usr/bin/cmake -E cmake_autogen /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles/gui_autogen.dir MinSizeRel
 
 ui_gui.h: ../src/gui.ui
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ui_gui.h"
-	/usr/bin/uic -o /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/ui_gui.h /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.ui
+	/usr/lib/qt5/bin/uic -o /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/ui_gui.h /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.ui
 
 gui_autogen: CMakeFiles/gui_autogen
 gui_autogen: ui_gui.h

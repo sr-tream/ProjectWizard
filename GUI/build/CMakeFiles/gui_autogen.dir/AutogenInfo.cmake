@@ -9,13 +9,13 @@ set(AM_SOURCES "/home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/main.cpp
 set(AM_HEADERS "")
 # Qt environment
 set(AM_QT_VERSION_MAJOR "5")
-set(AM_QT_MOC_EXECUTABLE "/usr/bin/moc")
+set(AM_QT_MOC_EXECUTABLE "/usr/lib/qt5/bin/moc")
 set(AM_QT_UIC_EXECUTABLE )
 set(AM_QT_RCC_EXECUTABLE )
 # MOC settings
 set(AM_MOC_SKIP "")
 set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_NO_DEBUG;QT_WIDGETS_LIB")
-set(AM_MOC_INCLUDES "/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build;/home/sr-tream/Projects/workspace/ProjectWizard/GUI;/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/gui_autogen/include;/usr/include/qt;/usr/include/qt/QtWidgets;/usr/include/qt/QtGui;/usr/include/qt/QtCore;/usr/lib/qt/mkspecs/linux-g++;/usr/include")
+set(AM_MOC_INCLUDES "/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build;/home/sr-tream/Projects/workspace/ProjectWizard/GUI;/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/gui_autogen/include;/usr/include/x86_64-linux-gnu/qt5;/usr/include/x86_64-linux-gnu/qt5/QtWidgets;/usr/include/x86_64-linux-gnu/qt5/QtGui;/usr/include/x86_64-linux-gnu/qt5/QtCore;/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++;/usr/include")
 set(AM_MOC_OPTIONS "")
 set(AM_MOC_RELAXED_MODE "FALSE")
 set(AM_MOC_DEPEND_FILTERS "")

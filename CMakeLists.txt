@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(ProjectWizard)
 
 option(BUILD_CLI "Build CLI frontend [ON/OFF]" ON)
-option(BUILD_GUI "Build GUI frontend [ON/OFF]" OFF)
+option(BUILD_GUI "Build GUI frontend [ON/OFF]" ON)
 
 macro( getSrcList placeholder floderName )
 	set( GSL "" )

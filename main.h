@@ -16,6 +16,7 @@ struct stVariable{
 
 extern std::map<std::string, stVariable> variables;
 
+void resetVariables();
 void addVariable(std::string name, std::deque<std::string> variants, std::string description = "");
 void setDescription(std::string varName, std::string description);
 void setVariants(std::string varName, std::deque<std::string> variants);

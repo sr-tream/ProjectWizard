@@ -2,6 +2,11 @@
 
 std::map<std::string, stVariable> variables;
 
+void resetVariables()
+{
+    variables.clear();
+}
+
 void addVariable(std::string name, std::deque<std::string> variants, std::string description)
 {
 	stVariable var;
@@ -81,8 +86,8 @@ std::string stringReplace(std::string str, const std::string &old_substr, const 
 void prepareString(std::string *str)
 {
 	for (auto var : variables){
-		if (str->find("${" + var.first + "}") != std::string::npos)
-			*str = stringReplace(*str, "${" + var.first + "}", var.second.variants[var.second.variant]);
+		if (str->find("%{" + var.first + "}") != std::string::npos)
+			*str = stringReplace(*str, "%{" + var.first + "}", var.second.variants[var.second.variant]);
 	}
 }
 

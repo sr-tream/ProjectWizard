@@ -14,6 +14,14 @@ set(gui_SRC
   src/gui.cpp
 )
 
+set(Boost_DETAILED_FAILURE_MSG TRUE)
+#set(Boost_DEBUG 1)
+set(BOOST_LIBRARYDIR "/usr/lib/x86_64-linux-gnu/")
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+set(Boost_ADDITIONAL_VERSIONS "1.62.0")
+find_package(Boost ${Boost_ADDITIONAL_VERSIONS} COMPONENTS filesystem REQUIRED)
+
 # Create code from a list of Qt designer ui files.
 #set(CMAKE_AUTOUIC ON) # use this if you have CMake 3.x instead of the following
 qt5_wrap_ui(gui_SRC src/gui.ui)
@@ -22,7 +30,7 @@ qt5_wrap_ui(gui_SRC src/gui.ui)
 add_executable(gui ${gui_SRC})
 
 # Use the Widgets module from Qt 5.
-target_link_libraries(gui Qt5::Widgets)
+target_link_libraries(gui Qt5::Widgets ProjectWizard ${Boost_LIBRARIES})
 
 # Install the executable
 install(TARGETS gui DESTINATION bin)

@@ -1,0 +1,1 @@
+/usr/bin/c++  -Os -DNDEBUG  -rdynamic CMakeFiles/projwizard_cli.dir/CLI.cpp.o  -o projwizard_cli -Wl,-rpath,/home/sr-tream/Projects/workspace/ProjectWizard/build ../libProjectWizard.so -Wl,-Bstatic -lboost_filesystem -lboost_system -Wl,-Bdynamic 

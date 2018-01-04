@@ -59,7 +59,7 @@ include CMakeFiles/gui.dir/flags.make
 
 ui_gui.h: ../src/gui.ui
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ui_gui.h"
-	/usr/bin/uic -o /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/ui_gui.h /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.ui
+	/usr/lib/qt5/bin/uic -o /home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/ui_gui.h /home/sr-tream/Projects/workspace/ProjectWizard/GUI/src/gui.ui
 
 CMakeFiles/gui.dir/src/main.cpp.o: CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/src/main.cpp.o: ../src/main.cpp
@@ -146,9 +146,11 @@ gui: CMakeFiles/gui.dir/src/main.cpp.o
 gui: CMakeFiles/gui.dir/src/gui.cpp.o
 gui: CMakeFiles/gui.dir/gui_autogen/mocs_compilation.cpp.o
 gui: CMakeFiles/gui.dir/build.make
-gui: /usr/lib/libQt5Widgets.so.5.9.2
-gui: /usr/lib/libQt5Gui.so.5.9.2
-gui: /usr/lib/libQt5Core.so.5.9.2
+gui: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.2
+gui: /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
+gui: /usr/lib/x86_64-linux-gnu/libboost_system.a
+gui: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.2
+gui: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.2
 gui: CMakeFiles/gui.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sr-tream/Projects/workspace/ProjectWizard/GUI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable gui"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gui.dir/link.txt --verbose=$(VERBOSE)
