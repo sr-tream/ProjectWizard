@@ -4,6 +4,7 @@
 build
 winbuild
 winbuild-static
+.kdev
 
 *~
 *.autosave
