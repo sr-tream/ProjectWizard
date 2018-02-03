@@ -29,7 +29,6 @@ protected:
 	void setupConnections();
 	void updateLastWizardScrolls();
 	bool loadWizard( QFileInfo wizard );
-	std::deque<QFileInfo> make_list_wizard(const boost::filesystem::path &  path);
 	void clearLayout(QLayout *layout); // TODO: cpp
 
 private slots:
@@ -43,12 +42,6 @@ private:
 	Ui::GUI *ui;
 	QSettings *set;
 	QGridLayout *lay = nullptr;
-    
-    std::string currentWizard;
-    std::deque<QFileInfo> list_wizard;
-	std::deque<std::string> ex_files;
-	std::deque<std::string> as_is;
-	std::deque<std::string> rename;
 };
 
 #endif // GUI_H

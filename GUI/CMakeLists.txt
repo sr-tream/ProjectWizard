@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(GUI)
+project(projwizard)
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -16,7 +16,7 @@ set(gui_SRC
 
 set(Boost_DETAILED_FAILURE_MSG TRUE)
 #set(Boost_DEBUG 1)
-set(BOOST_LIBRARYDIR "/usr/lib/x86_64-linux-gnu/")
+#set(BOOST_LIBRARYDIR "/usr/lib/x86_64-linux-gnu/")
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_STATIC_RUNTIME ON)
 set(Boost_ADDITIONAL_VERSIONS "1.62.0")
@@ -27,10 +27,7 @@ find_package(Boost ${Boost_ADDITIONAL_VERSIONS} COMPONENTS filesystem REQUIRED)
 qt5_wrap_ui(gui_SRC src/gui.ui)
 
 # Tell CMake to create the helloworld executable
-add_executable(gui ${gui_SRC})
+add_executable(${PROJECT_NAME} ${gui_SRC})
 
 # Use the Widgets module from Qt 5.
-target_link_libraries(gui Qt5::Widgets ProjectWizard ${Boost_LIBRARIES})
-
-# Install the executable
-install(TARGETS gui DESTINATION bin)
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets ProjectWizard ${Boost_LIBRARIES})

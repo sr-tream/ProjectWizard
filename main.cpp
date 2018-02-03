@@ -1,6 +1,13 @@
 #include "main.h"
 
+using namespace boost::filesystem;
+
 std::map<std::string, stVariable> variables;
+std::string wizard_file;
+std::deque<CFileInfo> list_project;
+std::deque<std::string> list_exclude;
+std::deque<std::string> list_asIs;
+std::deque<std::string> list_rename;
 
 void resetVariables()
 {
@@ -99,5 +106,111 @@ void prepareFile(CFileText *file)
 //				file->at(i) = stringReplace(file->at(i), "${" + var.first + "}", var.second.variants[var.second.variant]);
 //		}
 		prepareString(&file->at(i));
+	}
+}
+
+std::deque<CFileInfo> make_list_wizard(const path &  path){
+	std::deque<CFileInfo> result;
+	directory_iterator end_itr; // default construction yields past-the-end
+		for ( directory_iterator itr( path );
+			 itr != end_itr;
+		++itr )
+			 {
+				 if ( is_directory( *itr ) )
+				 {
+					 std::deque<CFileInfo> subdir = make_list_wizard( *itr );
+					 for (auto file : subdir)
+						 result.push_front(file);
+				 }
+				 		result.push_front(CFileInfo((*itr).path().c_str()));
+			 }
+			 	return result;
+}
+
+void setWizard(std::string file)
+{
+	wizard_file.clear();
+	wizard_file = file;
+}
+
+void setProject(std::deque<CFileInfo> list)
+{
+	list_project.clear();
+	list_project = list;
+}
+
+void setExclude(std::deque<std::string> list)
+{
+	list_exclude.clear();
+	list_exclude = list;
+}
+
+void setAsIs(std::deque<std::string> list)
+{
+	list_asIs.clear();
+	list_asIs = list;
+}
+
+void setRename(std::deque<std::string> list)
+{
+	list_rename.clear();
+	list_rename = list;
+}
+
+template<typename T>
+static bool hasInDeque(std::deque<T> &deq, const T &value){
+	for(auto it : deq)
+		if (it == value)
+			return true;
+		return false;
+}
+
+void createProject(std::string projectPath)
+{
+	std::string projectName = getVariable("ProjectName").variants.front();
+	CFileInfo wizard(wizard_file);
+	
+	create_directory(path(projectPath + projectName));
+	for (auto file : list_project){
+		std::string fileName = file.file();
+		fileName.erase(0, wizard.path().length());
+
+		if (fileName == wizard.fullName())
+			continue;
+
+		if (hasInDeque(list_exclude, fileName))
+			continue;
+
+		if (is_directory( path(file.file()) )){
+			create_directories(path(projectPath + projectName + "/" + fileName));
+			continue;
+		}
+
+		try {
+			copy_file(path(file.file()), path(projectPath + projectName + "/" + fileName));
+		} catch (std::exception) {
+			create_directories(path(CFileInfo(projectPath + projectName + "/" + fileName).path()));
+			copy_file(path(file.file()), path(projectPath + projectName + "/" + fileName));
+		}
+				if (hasInDeque(list_asIs, file.file()))
+			continue;
+
+		const std::regex re(R"(\"(.+)\"\s+\"(.+)\")");
+		std::cmatch m;
+		for (auto &name_pair : list_rename){
+			if (std::regex_match(name_pair.c_str(), m, re)){
+				if (m[1].str() == fileName){
+					std::string targetName = m[2].str();
+					prepareString(&targetName);
+					boost::filesystem::rename(path(projectPath + projectName + "/" + fileName), path(projectPath + projectName + "/" + targetName));
+					fileName = targetName;
+					break;
+				}
+			}
+		}
+
+		CFileText text(projectPath + projectName + "/" + fileName);
+		prepareFile(&text);
+		std::cout << "Prepare " + fileName << std::endl;
 	}
 }

@@ -8,24 +8,6 @@
 
 using namespace boost::filesystem;
 
-std::deque<CFileInfo> make_list_wizard(const path &  path){
-	std::deque<CFileInfo> result;
-	directory_iterator end_itr; // default construction yields past-the-end
-	for ( directory_iterator itr( path );
-			itr != end_itr;
-			++itr )
-	{
-		if ( is_directory( *itr ) )
-		{
-			std::deque<CFileInfo> subdir = make_list_wizard( *itr );
-			for (auto file : subdir)
-				result.push_front(file);
-		}
-		result.push_front(CFileInfo((*itr).path().c_str()));
-	}
-	return result;
-}
-
 std::string getProjectName(std::string defName = "default"){
 	std::string name;
 
@@ -41,14 +23,6 @@ std::string getProjectName(std::string defName = "default"){
 	return name;
 }
 
-template<typename T>
-bool hasInDeque(std::deque<T> &deq, const T &value){
-	for(auto it : deq)
-		if (it == value)
-			return true;
-	return false;
-}
-
 int main(int args, char **argv)
 {
 	if (args < 2){
@@ -58,7 +32,6 @@ int main(int args, char **argv)
 
 	CFileInfo wizFile(argv[1]);
 	if (!wizFile.isExist()){
-		// TODO: Create new wizard
 		std::cout << "wizard \"" << wizFile.fullName() << "\" not exist" << std::endl;
 		return 2;
 	}
@@ -77,7 +50,6 @@ int main(int args, char **argv)
 	else {
 		ProjectName = argv[2];
 		addVariable("ProjectName", {ProjectName}, "The project name");
-		create_directory(path(ProjectName));
 	}
 
 	std::deque<std::string> vars = config.array("/variable");
@@ -124,49 +96,13 @@ int main(int args, char **argv)
 			setVariants(var, variants);
 		}
 	}
-
-	for (auto file : list_wizard){
-		std::string fileName = file.file();
-		fileName.erase(0, wizFile.path().length());
-
-		if (fileName == wizFile.fullName())
-			continue;
-
-		if (hasInDeque(ex_files, fileName))
-			continue;
-
-		if (is_directory( path(file.file()) )){
-			create_directories(path(ProjectName + "/" + fileName));
-			continue;
-		}
-
-		try {
-			copy_file(path(file.file()), path(ProjectName + "/" + fileName));
-		} catch (std::exception) {
-			create_directories(path(CFileInfo(ProjectName + "/" + fileName).path()));
-			copy_file(path(file.file()), path(ProjectName + "/" + fileName));
-		}
-		if (hasInDeque(as_is, file.file()))
-			continue;
-
-		const std::regex re(R"(\"(.+)\"\s+\"(.+)\")");
-		std::cmatch m;
-		for (auto &name_pair : rename){
-			if (std::regex_match(name_pair.c_str(), m, re)){
-				if (m[1].str() == fileName){
-					std::string targetName = m[2].str();
-					prepareString(&targetName);
-					boost::filesystem::rename(path(ProjectName + "/" + fileName), path(ProjectName + "/" + targetName));
-					fileName = targetName;
-					break;
-				}
-			}
-		}
-
-		CFileText text(ProjectName + "/" + fileName);
-		prepareFile(&text);
-		std::cout << "Prepare " + fileName << std::endl;
-	}
+	
+	setWizard(argv[1]);
+	setProject(list_wizard);
+	setExclude(ex_files);
+	setAsIs(as_is);
+	setRename(rename);
+	createProject(current_path().string() + "/");
 
 	return 0;
 }

@@ -24,6 +24,27 @@ parserArgumentsC=-ferror-limit=100 -fspell-checking -Wdocumentation -Wunused-par
 [CustomDefinesAndIncludes][ProjectPath0][Compiler]
 Name=GCC
 
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=New Compiled Binary Launcher
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
+Dependency Action=Nothing
+EnvironmentGroup=
+Executable=file:///home/sr-tream/Projects/workspace/ProjectWizard/build/GUI/projwizard
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=ProjectWizard,CLI,projwizard_cli
+Use External Terminal=false
+Working Directory=
+isExecutable=true
+
 [MakeBuilder]
 Number Of Jobs=8
 Override Number Of Jobs=true

@@ -45,12 +45,22 @@ cfilebase.h
 /home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfilebase.h
 
 /home/sr-tream/Projects/workspace/ProjectWizard/main.h
+iostream
+-
 string
+-
+regex
 -
 deque
 -
 map
 -
+boost/filesystem.hpp
+-
 FileMan/cfiletext.h
 /home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfiletext.h
+FileMan/cfileinfo.h
+/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileinfo.h
+FileMan/cfileini.h
+/home/sr-tream/Projects/workspace/ProjectWizard/FileMan/cfileini.h
 

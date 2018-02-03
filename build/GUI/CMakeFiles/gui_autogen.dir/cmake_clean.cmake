@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "gui_autogen"
   "CMakeFiles/gui_autogen.dir/AutogenOldSettings.cmake"
   "CMakeFiles/gui_autogen"
-  "ui_gui.h"
 )
 
 # Per-language clean rules from dependency scanning.

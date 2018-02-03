@@ -23,11 +23,11 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "GUI"
   "../GUI"
   "GUI/gui_autogen/include"
-  "/usr/include/x86_64-linux-gnu/qt5"
-  "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
-  "/usr/include/x86_64-linux-gnu/qt5/QtGui"
-  "/usr/include/x86_64-linux-gnu/qt5/QtCore"
-  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+  "/usr/include/qt"
+  "/usr/include/qt/QtWidgets"
+  "/usr/include/qt/QtGui"
+  "/usr/include/qt/QtCore"
+  "/usr/lib/qt/mkspecs/linux-g++"
   )
 
 # Targets to which this target links.
