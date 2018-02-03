@@ -44,7 +44,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -83,8 +83,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>231</width>
-               <height>164</height>
+               <width>234</width>
+               <height>155</height>
               </rect>
              </property>
             </widget>
@@ -96,6 +96,26 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="selectWizard">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Select</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="removeWizard">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <spacer name="horizontalSpacer">
           <property name="orientation">
@@ -146,7 +166,6 @@
      <string>A&amp;bout</string>
     </property>
     <addaction name="actionAbout_ProjectWizard"/>
-    <addaction name="actionGo_to_GITHUB"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
@@ -154,7 +173,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionWizard">
    <property name="text">
-    <string>Wizard</string>
+    <string>&amp;Wizard</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -162,12 +181,12 @@
   </action>
   <action name="actionQuit">
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
   <action name="actionAbout_ProjectWizard">
    <property name="text">
-    <string>About ProjectWizard</string>
+    <string>&amp;About ProjectWizard</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -175,7 +194,7 @@
   </action>
   <action name="actionGo_to_GITHUB">
    <property name="text">
-    <string>Go to GITHUB</string>
+    <string>&amp;Go to GITHUB</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>

@@ -192,7 +192,7 @@ void createProject(std::string projectPath)
 			create_directories(path(CFileInfo(projectPath + projectName + "/" + fileName).path()));
 			copy_file(path(file.file()), path(projectPath + projectName + "/" + fileName));
 		}
-				if (hasInDeque(list_asIs, file.file()))
+		if (hasInDeque(list_asIs, file.file()))
 			continue;
 
 		const std::regex re(R"(\"(.+)\"\s+\"(.+)\")");

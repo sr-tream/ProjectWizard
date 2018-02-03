@@ -36,7 +36,10 @@ private slots:
 	void onSelectWizard();
 	void onAboutClicked();
 	void onLastWizardDblClick(QListWidgetItem *item);
+	void onWizardChanged(const QString &name);
     void onCreateClicked();
+	void onRemoveClicked();
+	void onSelectClicked();
 
 private:
 	Ui::GUI *ui;

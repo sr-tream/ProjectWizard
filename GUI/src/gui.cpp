@@ -54,8 +54,11 @@ void GUI::setupConnections()
     QObject::connect ( ui->actionQuit, &QAction::triggered, this, &GUI::onQuitClicked );
     QObject::connect ( ui->actionWizard, &QAction::triggered, this, &GUI::onSelectWizard );
     QObject::connect ( ui->actionAbout_ProjectWizard, &QAction::triggered, this, &GUI::onAboutClicked );
-    QObject::connect ( ui->lastWizards, &QListWidget::itemDoubleClicked, this, &GUI::onLastWizardDblClick );
-    QObject::connect ( ui->create, SIGNAL ( clicked() ), SLOT ( onCreateClicked() ) );
+	QObject::connect ( ui->lastWizards, &QListWidget::itemDoubleClicked, this, &GUI::onLastWizardDblClick );
+	QObject::connect ( ui->lastWizards, &QListWidget::currentTextChanged, this, &GUI::onWizardChanged );
+	QObject::connect ( ui->create, SIGNAL ( clicked() ), SLOT ( onCreateClicked() ) );
+	QObject::connect ( ui->removeWizard, SIGNAL ( clicked() ), SLOT ( onRemoveClicked() ) );
+	QObject::connect ( ui->selectWizard, SIGNAL ( clicked() ), SLOT ( onSelectClicked() ) );
 }
 
 void GUI::updateLastWizardScrolls()
@@ -164,8 +167,9 @@ void GUI::onSelectWizard()
     if ( loadWizard ( fi ) ) {
         ui->lastWizards->addItem ( fi.filePath() );
         updateLastWizardScrolls();
-    } else {
+	} else {
         ui->statusBar->showMessage ( "This wizard is garbage", 5000 );
+		onRemoveClicked();
     }
 }
 
@@ -179,8 +183,16 @@ void GUI::onAboutClicked()
 
 void GUI::onLastWizardDblClick ( QListWidgetItem* item )
 {
-    if ( !loadWizard ( item->text() ) )
-        ui->statusBar->showMessage ( "This wizard is garbage", 5000 );
+	onSelectClicked();
+}
+
+void GUI::onWizardChanged(const QString& name)
+{
+	if (name.isEmpty())
+		return;
+	
+	ui->selectWizard->setEnabled(true);
+	ui->removeWizard->setEnabled(true);
 }
 
 void GUI::onCreateClicked()
@@ -213,7 +225,27 @@ void GUI::onCreateClicked()
     }
     
     createProject(projectPath.toStdString());
-	QMessageBox msg;
-	msg.setText("Project \"" + ui->name->text() + "\" has created!");
-	msg.exec();
+	ui->statusBar->showMessage ( "Project \"" + ui->name->text() + "\" has created!", 5000 );
+}
+
+void GUI::onRemoveClicked()
+{	
+	int id = ui->lastWizards->currentRow();
+	int lastId = set->value ( "lastWizards/count" ).toInt() - 1;
+	set->setValue("lastWizards/" + QString::number ( id ), set->value ( "lastWizards/" + QString::number ( lastId )).toString());
+	set->setValue("lastWizards/count", lastId -1);
+	ui->lastWizards->removeItemWidget(ui->lastWizards->takeItem(id));
+	
+	if (!ui->lastWizards->count()){
+		ui->selectWizard->setEnabled(false);
+		ui->removeWizard->setEnabled(false);
+	}
+}
+
+void GUI::onSelectClicked()
+{
+	if ( !loadWizard ( ui->lastWizards->currentItem()->text() ) ){
+		ui->statusBar->showMessage ( "This wizard is garbage", 5000 );
+		onRemoveClicked();
+	}
 }
