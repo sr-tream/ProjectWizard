@@ -220,8 +220,8 @@ GUI_SOURCE_DIR:STATIC=/home/sr-tream/Projects/workspace/ProjectWizard/GUI
 //Value Computed by CMake
 ProjectWizard_BINARY_DIR:STATIC=/home/sr-tream/Projects/workspace/ProjectWizard/build
 
-//Dependencies for target
-ProjectWizard_LIB_DEPENDS:STATIC=
+//Dependencies for the target
+ProjectWizard_LIB_DEPENDS:STATIC=general;/usr/lib/libboost_filesystem.a;general;/usr/lib/libboost_system.a;
 
 //Value Computed by CMake
 ProjectWizard_SOURCE_DIR:STATIC=/home/sr-tream/Projects/workspace/ProjectWizard
@@ -406,7 +406,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Last used Boost_ADDITIONAL_VERSIONS value.
-_Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.62.0
+_Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.54.0
 //Components requested for this build tree.
 _Boost_COMPONENTS_SEARCHED:INTERNAL=filesystem;system
 //Last used Boost_INCLUDE_DIR value.

@@ -122,7 +122,7 @@ std::deque<CFileInfo> make_list_wizard(const path &  path){
 					 for (auto file : subdir)
 						 result.push_front(file);
 				 }
-				 		result.push_front(CFileInfo((*itr).path().c_str()));
+				 		result.push_front(CFileInfo((*itr).path().string()));
 			 }
 			 	return result;
 }

@@ -220,6 +220,8 @@ libProjectWizard.so: CMakeFiles/ProjectWizard.dir/FileMan/cfileinfo.cpp.o
 libProjectWizard.so: CMakeFiles/ProjectWizard.dir/FileMan/cfileini.cpp.o
 libProjectWizard.so: CMakeFiles/ProjectWizard.dir/FileMan/cfiletext.cpp.o
 libProjectWizard.so: CMakeFiles/ProjectWizard.dir/build.make
+libProjectWizard.so: /usr/lib/libboost_filesystem.a
+libProjectWizard.so: /usr/lib/libboost_system.a
 libProjectWizard.so: CMakeFiles/ProjectWizard.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sr-tream/Projects/workspace/ProjectWizard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libProjectWizard.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjectWizard.dir/link.txt --verbose=$(VERBOSE)
